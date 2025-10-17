@@ -1,12 +1,11 @@
 # Roadmap LLM Sênior
 
-Aplicação Next.js que transforma o arquivo `roadmap.html` em uma ferramenta interativa para acompanhamento do roadmap de Arquitetura LLM.
+Aplicação Next.js para acompanhamento do roadmap de Arquitetura LLM.
 
 ## Funcionalidades
 
-- Layout idêntico ao material original com navegação por meses/épicos.
 - Formulário para registrar o andamento de cada microtarefa com status, descrição, link e data somente leitura.
-- Página de listagem com histórico das atualizações registradas.
+- Listagem com histórico das atualizações registradas.
 - Dashboard com métricas agregadas por épico e últimas atualizações.
 
 Os dados do progresso são persistidos no `localStorage` do navegador.
