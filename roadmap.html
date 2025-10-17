@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="h-full">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Roadmap LLM Sênior</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Inter', 'sans-serif'],
+          },
+          colors: {
+            brand: {
+              50: '#f4f8ff', 100: '#e9f0ff', 200: '#cddfff', 300: '#a9c6ff',
+              400: '#6c9dff', 500: '#3b82f6', 600: '#2162d8', 700: '#1b4fab',
+              800: '#173f87', 900: '#132f63', 950: '#0f172a',
+            }
+          },
+        }
+      },
+      darkMode: 'class'
+    }
+  </script>
+  <style>
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-feature-settings: 'cv02', 'cv03', 'cv04', 'cv11';
+    }
+
+    section[data-route]:not(.active) {
+      display: none;
+    }
+  </style>
+</head>
+
+<body class="h-full font-sans bg-gray-100 dark:bg-brand-950 text-gray-800 dark:text-gray-200">
+  <div class="min-h-screen flex">
+
+    <aside id="sidebar"
+      class="hidden md:flex flex-col w-72 shrink-0 border-r border-gray-200/80 dark:border-white/10 bg-white/50 dark:bg-gray-900/40 backdrop-blur-md">
+      <div class="p-5 border-b border-gray-200/80 dark:border-white/10">
+        <h1 class="text-xl font-extrabold tracking-tight">ROADMAP LLM SÊNIOR</h1>
+        <p class="text-sm text-gray-500 dark:text-gray-400">Transição para Arquiteto de IA</p>
+      </div>
+      <nav class="flex-1 overflow-y-auto p-4">
+        <p class="px-2 py-2 text-xs font-semibold uppercase tracking-wider text-gray-500 dark:text-gray-400">Navegação
+        </p>
+        <ul id="navList" class="space-y-1">
+          <li><a href="#overview" data-route-link
+              class="navlink block px-3 py-2 transition-colors duration-200 hover:bg-gray-200/60 dark:hover:bg-white/10">Visão
+              Geral</a></li>
+          <li class="pt-3">
+            <p class="px-2 py-2 text-xs font-semibold uppercase tracking-wider text-gray-500 dark:text-gray-400">
+              Épicos (6 Meses)</p>
+          </li>
+          <li><a href="#mes1" data-route-link
+              class="navlink block px-3 py-2 transition-colors duration-200 hover:bg-gray-200/60 dark:hover:bg-white/10">💻 Mês 1: Fundamentos RAG e Frameworks</a></li>
+          <li><a href="#mes2" data-route-link
+              class="navlink block px-3 py-2 transition-colors duration-200 hover:bg-gray-200/60 dark:hover:bg-white/10">🚀 Mês 2: Otimização e MLOps Básico</a></li>
+          <li><a href="#mes3" data-route-link
+              class="navlink block px-3 py-2 transition-colors duration-200 hover:bg-gray-200/60 dark:hover:bg-white/10">🤖 Mês 3: Arquitetura de Agentes</a></li>
+          <li><a href="#mes4" data-route-link
+              class="navlink block px-3 py-2 transition-colors duration-200 hover:bg-gray-200/60 dark:hover:bg-white/10">⚙️ Mês 4: Personalização (Fine-Tuning)</a></li>
+          <li><a href="#mes5" data-route-link
+              class="navlink block px-3 py-2 transition-colors duration-200 hover:bg-gray-200/60 dark:hover:bg-white/10">⚖️ Mês 5: Governança e Liderança</a></li>
+          <li><a href="#mes6" data-route-link
+              class="navlink block px-3 py-2 transition-colors duration-200 hover:bg-gray-200/60 dark:hover:bg-white/10">🎯 Mês 6: Impacto Estratégico</a></li>
+        </ul>
+      </nav>
+      <div class="p-4 border-t border-gray-200/80 dark:border-white/10 text-xs text-gray-500 dark:text-gray-400">
+        <p>Atualize semanalmente • Foco na próxima microtarefa</p>
+      </div>
+    </aside>
+
+    <main class="flex-1 flex flex-col">
+      <header
+        class="sticky top-0 z-10 bg-gray-100/80 dark:bg-brand-950/70 backdrop-blur-md border-b border-gray-200/80 dark:border-white/10">
+        <div class="flex items-center justify-between px-4 md:px-6 py-3">
+          <div class="flex items-center gap-3">
+            <button id="toggleMenu"
+              class="md:hidden inline-flex items-center justify-center h-10 w-10 border border-gray-300 dark:border-white/10 hover:bg-gray-200 dark:hover:bg-white/5">
+              <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
+              </svg>
+            </button>
+            <div>
+              <h2 id="pageTitle" class="text-lg md:text-xl font-bold tracking-tight">Visão Geral</h2>
+              <p class="text-xs md:text-sm text-gray-500 dark:text-gray-400">Você está em: <span id="breadcrumb"
+                  class="font-medium text-gray-700 dark:text-gray-300">Visão Geral</span></p>
+            </div>
+          </div>
+          <div class="flex items-center gap-4">
+            <button id="themeToggle"
+              class="relative inline-flex items-center justify-center h-10 w-10 border border-gray-300 dark:border-white/10 hover:bg-gray-200 dark:hover:bg-white/5 text-gray-500 dark:text-gray-400">
+              <svg class="w-5 h-5 dark:hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                  d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z">
+                </path>
+              </svg>
+              <svg class="w-5 h-5 hidden dark:inline" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                  d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"></path>
+              </svg>
+            </button>
+            <span id="now" class="hidden md:block text-sm text-gray-500 dark:text-gray-400"></span>
+          </div>
+        </div>
+      </header>
+
+      <div class="p-4 md:p-6 lg:p-8 space-y-12">
+
+        <section id="overview" data-route class="active">
+          <div class="grid gap-8 lg:grid-cols-3">
+            <article
+              class="lg:col-span-2 p-8 flex flex-col justify-center bg-gray-200 dark:bg-gray-900 bg-[radial-gradient(theme(colors.gray.300)_1px,transparent_1px)] dark:bg-[radial-gradient(theme(colors.white)_0.5px,transparent_0.5px)] [background-size:16px_16px]">
+              <h3 class="text-2xl md:text-3xl font-extrabold tracking-tighter mb-2 text-gray-900 dark:text-white">Seu
+                Roadmap de 6 Meses para Arquitetura LLM</h3>
+              <p class="text-gray-600 dark:text-gray-300 max-w-xl">Um plano de ação detalhado para transicionar sua experiência Sênior para o foco em Engenharia e Arquitetura de LLMs. Utilize o menu lateral para navegar pelos Épicos (Meses).</p>
+              <a href="#mes1"
+                class="inline-block mt-6 bg-brand-500 text-white font-semibold px-5 py-2 hover:bg-brand-600 transition-colors w-auto max-w-max">Começar o Mês 1 🚀</a>
+            </article>
+
+            <article class="bg-white dark:bg-gray-900 border border-gray-200 dark:border-white/10 p-6">
+              <h3 class="text-lg font-bold tracking-tight mb-4">Progresso por Mês</h3>
+              <div class="space-y-4">
+                <div>
+                  <div class="flex justify-between text-xs mb-1.5 font-medium"><span>Mês 1 (RAG Fundacional)</span><span
+                      class="text-brand-600 dark:text-brand-400">80%</span></div>
+                  <div class="h-2 w-full bg-gray-200/70 dark:bg-white/10">
+                    <div class="h-2 w-[80%] bg-brand-500"></div>
+                  </div>
+                </div>
+                <div>
+                  <div class="flex justify-between text-xs mb-1.5 font-medium"><span>Mês 2 (MLOps Básico)</span><span
+                      class="text-brand-600 dark:text-brand-400">30%</span></div>
+                  <div class="h-2 w-full bg-gray-200/70 dark:bg-white/10">
+                    <div class="h-2 w-[30%] bg-brand-500"></div>
+                  </div>
+                </div>
+                <div>
+                  <div class="flex justify-between text-xs mb-1.5 font-medium"><span>Mês 3 (Agentes de IA)</span><span
+                      class="text-brand-600 dark:text-brand-400">0%</span></div>
+                  <div class="h-2 w-full bg-gray-200/70 dark:bg-white/10">
+                    <div class="h-2 w-[0%] bg-brand-500"></div>
+                  </div>
+                </div>
+                <div>
+                  <div class="flex justify-between text-xs mb-1.5 font-medium"><span>Mês 4 a 6 (Avançado)</span><span
+                      class="text-brand-600 dark:text-brand-400">0%</span></div>
+                  <div class="h-2 w-full bg-gray-200/70 dark:bg-white/10">
+                    <div class="h-2 w-[0%] bg-brand-500"></div>
+                  </div>
+                </div>
+              </div>
+            </article>
+          </div>
+        </section>
+
+        <template id="cardTemplate">
+          <div
+            class="group bg-white dark:bg-gray-900 border border-gray-200 dark:border-white/10 shadow-md hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
+            <div class="relative h-40 overflow-hidden">
+              <img class="card-image w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
+                src="" alt="">
+              <div
+                class="card-fallback hidden absolute inset-0 w-full h-full flex items-center justify-center bg-gradient-to-br from-gray-300 to-gray-400 dark:from-gray-700 dark:to-gray-800">
+                <svg class="w-10 h-10 text-gray-500 dark:text-gray-400" fill="none" stroke="currentColor"
+                  viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+                    d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l-1.586-1.586a2 2 0 00-2.828 0L6 14m6-6a3 3 0 11-6 0 3 3 0 016 0z">
+                  </path>
+                </svg>
+              </div>
+              <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+            </div>
+            <div class="p-5">
+              <h4 class="card-title font-bold text-lg tracking-tight mb-2 text-gray-900 dark:text-white">
+                <span class="sr-only">Título do cartão</span>
+              </h4>
+              <span class="card-deadline text-[11px] font-semibold px-2 py-0.5"></span>
+              <ul class="mt-4 text-sm space-y-2 text-gray-600 dark:text-gray-300">
+              </ul>
+            </div>
+          </div>
+        </template>
+
+        <section id="mes1" data-route>
+          <h3 class="text-2xl font-bold tracking-tight mb-6 border-b border-gray-300 dark:border-white/10 pb-2">💻 Mês 1: Fundamentos RAG e Frameworks</h3>
+          <div id="mes1-grid" class="grid gap-6 md:grid-cols-2 lg:grid-cols-3"></div>
+        </section>
+
+        <section id="mes2" data-route>
+          <h3 class="text-2xl font-bold tracking-tight mb-6 border-b border-gray-300 dark:border-white/10 pb-2">🚀 Mês 2: Otimização, Custo e MLOps Básico</h3>
+          <div id="mes2-grid" class="grid gap-6 md:grid-cols-2 lg:grid-cols-3"></div>
+        </section>
+
+        <section id="mes3" data-route>
+          <h3 class="text-2xl font-bold tracking-tight mb-6 border-b border-gray-300 dark:border-white/10 pb-2">🤖 Mês 3: Arquitetura de Agentes e Automação</h3>
+          <div id="mes3-grid" class="grid gap-6 md:grid-cols-2 lg:grid-cols-3"></div>
+        </section>
+
+        <section id="mes4" data-route>
+          <h3 class="text-2xl font-bold tracking-tight mb-6 border-b border-gray-300 dark:border-white/10 pb-2">⚙️ Mês 4: Personalização Profunda (Fine-Tuning)</h3>
+          <div id="mes4-grid" class="grid gap-6 md:grid-cols-2 lg:grid-cols-3"></div>
+        </section>
+        
+        <section id="mes5" data-route>
+          <h3 class="text-2xl font-bold tracking-tight mb-6 border-b border-gray-300 dark:border-white/10 pb-2">⚖️ Mês 5: Estratégia, Governança e Liderança</h3>
+          <div id="mes5-grid" class="grid gap-6 md:grid-cols-2 lg:grid-cols-3"></div>
+        </section>
+
+        <section id="mes6" data-route>
+          <h3 class="text-2xl font-bold tracking-tight mb-6 border-b border-gray-300 dark:border-white/10 pb-2">🎯 Mês 6: Impacto Estratégico e Arquitetura Final</h3>
+          <div id="mes6-grid" class="grid gap-6 md:grid-cols-2 lg:grid-cols-3"></div>
+        </section>
+
+      </div>
+    </main>
+  </div>
+
+  <script>
+    // --- DATA ---
+    const cardData = {
+      mes1: [
+        { img: `https://images.unsplash.com/photo-1517694712202-14dd9538aa97?ixlib=rb-4.0.3&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=800`, title: "MASTERY 1: MVP de RAG Funcional em Dev", deadline: { text: "Mês 1", color: "brand" }, steps: ["Semana 1: Estudar arquitetura Transformer e instalar libs base (Hugging Face, OpenAI SDK).", "Semana 2: Entender Embeddings. Escolher e configurar um Vector DB (ChromaDB/LanceDB).", "Semana 3: Dominar o LangChain/LlamaIndex - Loaders, Retrivers, Chains.", "Semana 4: Conectar tudo, criar o pipeline RAG e testar a qualidade das respostas (sem alucinações)."] },
+      ],
+      mes2: [
+        { img: `https://images.unsplash.com/photo-1549692520-2193b2a3a0e9?ixlib=rb-4.0.3&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=800`, title: "MASTERY 2: RAG Otimizado, Servido e Auditado", deadline: { text: "Mês 2", color: "brand" }, steps: ["Semana 5: Pesquisar LLMs Open Source (Llama, Mistral) e instalar Ollama.", "Semana 6: Empacotar o RAG em Docker e subir para um ambiente Cloud (Cloud Run/ECS).", "Semana 7: Implementar log e cálculo de custo por token. Estudar OWASP Top 10 para LLMs.", "Semana 8: Reforçar a segurança da API contra Prompt Injection. Documentar o processo de deployment."] },
+      ],
+      mes3: [
+        { img: `https://images.unsplash.com/photo-1563770701833-289b4f23a073?ixlib=rb-4.0.3&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=800`, title: "MASTERY 3: Agente Autônomo e Integração Full-stack", deadline: { text: "Mês 3", color: "brand" }, steps: ["Semana 9: Aprofundar o uso de Agentes (LangChain/LangGraph) e criação de Tools.", "Semana 10: Criar um Agente que utilize 2-3 Tools (ex: API de vendas, DB e notificação Slack).", "Semana 11: Desenvolver o Front-end em TS/React/Vue. Foco em UX (streaming de texto).", "Semana 12: Apresentar a demo do Agente para a equipe de gestão (foco no valor de negócio)."] },
+      ],
+      mes4: [
+        { img: `https://images.unsplash.com/photo-1620712943543-bcc462214647?ixlib=rb-4.0.3&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=800`, title: "MASTERY 4: Modelo SLM de Domínio Específico (Fine-Tuning)", deadline: { text: "Mês 4", color: "brand" }, steps: ["Semana 13: Estudar a fundo as técnicas de Fine-tuning eficiente (LoRA/QLoRA).", "Semana 14: Coletar e limpar um dataset pequeno (1k-5k amostras) para a tarefa.", "Semana 15: Executar o processo de Fine-tuning do SLM no Cloud (Colab ou Sagemaker).", "Semana 16: Comparar a performance do SLM Fine-tuned vs. RAG vs. LLM base no seu domínio."] },
+      ],
+      mes5: [
+        { img: `https://images.unsplash.com/photo-1555949963-aa79d2f8319e?ixlib=rb-4.0.3&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=800`, title: "MASTERY 5: Plano de Governança de IA e Mentoria", deadline: { text: "Mês 5", color: "brand" }, steps: ["Semana 17: Estudo de Ética e Vieses em LLMs. Revisão de regulamentações (LGPD).", "Semana 18: Definir o 'Padrão de Ouro de LLM' para a equipe (ferramentas, linguagens, regras de segurança).", "Semana 19: Iniciar a Mentoria formal com Plenos, revisando código com foco em custo e arquitetura.", "Semana 20: Criar e apresentar o Plano de Governança de Dados para LLMs para a liderança."] },
+      ],
+      mes6: [
+        { img: `https://images.unsplash.com/photo-1511376777868-611b54f68947?ixlib=rb-4.0.3&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=800`, title: "MASTERY 6: Implementação de Alto Impacto e Posicionamento", deadline: { text: "Mês 6", color: "brand" }, steps: ["Semana 21: Foco no deployment final do projeto LLM de maior valor, garantindo escalabilidade e monitoramento.", "Semana 22: Documentação final da arquitetura (diagramas) e playbook de manutenção.", "Semana 23: Preparar e apresentar o Relatório de ROI do projeto para a diretoria.", "Semana 24: Autoavaliação e definição de Objetivos de IA para os Próximos 12 meses."] },
+      ],
+    };
+
+    // --- UI ELEMENTS & ROUTES ---
+    const pageTitle = document.getElementById('pageTitle'), breadcrumb = document.getElementById('breadcrumb'), sections = document.querySelectorAll('section[data-route]'), navLinks = document.querySelectorAll('[data-route-link]'), sidebar = document.getElementById('sidebar'), toggleMenu = document.getElementById('toggleMenu'), nowEl = document.getElementById('now'), themeToggle = document.getElementById('themeToggle');
+    const routes = {
+      overview: { title: "Visão Geral" }, 
+      mes1: { title: "Mês 1: Fundamentos RAG e Frameworks" }, 
+      mes2: { title: "Mês 2: Otimização e MLOps Básico" }, 
+      mes3: { title: "Mês 3: Arquitetura de Agentes" }, 
+      mes4: { title: "Mês 4: Personalização (Fine-Tuning)" }, 
+      mes5: { title: "Mês 5: Governança e Liderança" },
+      mes6: { title: "Mês 6: Impacto Estratégico" },
+    };
+
+    // --- FUNCTIONS ---
+    function renderCards() {
+      const template = document.getElementById('cardTemplate');
+      const stepIcons = ["▸", "▸", "▸", "▸"]; // 4 Weeks/steps per card
+
+      for (const category in cardData) {
+        const grid = document.getElementById(`${category}-grid`);
+        if (!grid) continue;
+
+        grid.innerHTML = '';
+        cardData[category].forEach(card => {
+          const cardClone = template.content.cloneNode(true);
+          const imgEl = cardClone.querySelector('.card-image');
+
+          imgEl.src = card.img;
+          imgEl.alt = card.title;
+
+          // LÓGICA DE FALLBACK (mantida do seu código)
+          imgEl.onerror = function () {
+            this.style.display = 'none';
+            const fallbackEl = this.nextElementSibling;
+            if (fallbackEl && fallbackEl.classList.contains('card-fallback')) {
+              fallbackEl.style.display = 'flex';
+            }
+          };
+
+          cardClone.querySelector('.card-title').textContent = card.title;
+          const deadlineEl = cardClone.querySelector('.card-deadline');
+          deadlineEl.textContent = `Prazo: ${card.deadline.text}`;
+          if (card.deadline.color === 'brand') {
+            deadlineEl.classList.add('bg-brand-100', 'text-brand-800', 'dark:bg-brand-500/20', 'dark:text-brand-300');
+          } else {
+            deadlineEl.classList.add('bg-gray-200', 'text-gray-800', 'dark:bg-white/10', 'dark:text-white/80');
+          }
+
+          const listEl = cardClone.querySelector('ul');
+          listEl.innerHTML = card.steps.map((step, index) => {
+            const label = ['Semana 1', 'Semana 2', 'Semana 3', 'Semana 4'][index];
+            return `
+                    <li class="flex gap-2">
+                        <span class="text-brand-400">${stepIcons[index % stepIcons.length]}</span>
+                        <span><b>${label}:</b> ${step.replace(/Semana \d+: /, '')}</span>
+                    </li>
+                `;
+          }).join('');
+
+          grid.appendChild(cardClone);
+        });
+      }
+    }
+
+    function updateNow() { if (nowEl) nowEl.textContent = new Date().toLocaleString('pt-BR', { dateStyle: 'long', timeStyle: 'short' }).replace(' às', ','); }
+
+    function handleMenuToggle() {
+      toggleMenu?.addEventListener('click', () => {
+        sidebar.classList.toggle('hidden');
+        sidebar.classList.toggle('flex');
+      });
+    }
+
+    function activateRoute(hash) {
+      const key = (hash?.replace('#', '') || 'overview');
+      const info = routes[key] || routes.overview;
+      pageTitle.textContent = info.title; breadcrumb.textContent = info.title;
+      sections.forEach(sec => sec.classList.toggle('active', sec.id === key));
+      navLinks.forEach(a => {
+        const isActive = a.getAttribute('href') === '#' + key;
+        a.classList.toggle('bg-brand-500', isActive);
+        a.classList.toggle('text-white', isActive);
+        a.classList.toggle('dark:bg-brand-500', isActive);
+        a.classList.toggle('font-bold', isActive);
+        if (!isActive) a.classList.remove('text-white', 'font-bold');
+      });
+      if (window.innerWidth < 768 && !sidebar.classList.contains('hidden')) {
+        sidebar.classList.add('hidden');
+        sidebar.classList.remove('flex');
+      }
+      window.scrollTo(0, 0);
+    }
+
+    function handleTheme() {
+      const root = document.documentElement;
+      const setTheme = (mode) => {
+        root.classList.toggle('dark', mode === 'dark');
+        localStorage.setItem('theme', mode);
+      };
+      const initialTheme = localStorage.getItem('theme') || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+      setTheme(initialTheme);
+      themeToggle?.addEventListener('click', () => setTheme(root.classList.contains('dark') ? 'light' : 'dark'));
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+      renderCards();
+      updateNow(); setInterval(updateNow, 60_000);
+      handleMenuToggle();
+      window.addEventListener('hashchange', () => activateRoute(location.hash));
+      activateRoute(location.hash);
+      handleTheme();
+    });
+
+    const senhaCodificada = "c2VuaGFBZG1pbjEyMw==";
+    const senha = atob(senhaCodificada); // Decodifica a senha
+
+    var senhaDigitada = prompt("Digite a senha para acessar:");
+
+    if (senhaDigitada !== senha) {
+      document.body.innerHTML = "<h1>Acesso Negado</h1>";
+    }
+  </script>
+</body>
+
+</html>
